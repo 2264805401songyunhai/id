@@ -11,7 +11,7 @@ ReactDOM.render(
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistStore(store)}>
             <div>
-                asdasd
+                宋云海是傻逼
             </div>
         </PersistGate>
     </Provider>
