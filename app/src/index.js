@@ -6,6 +6,7 @@ import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 import { store } from "./store"
 import loadable from "./routersLan"
+
 ReactDOM.render(
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistStore(store)}>
