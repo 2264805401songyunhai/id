@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import './styles.less'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import axios from 'axios'
+import qs from 'qs'
+
 
 export default @Form.create({ name: 'normal_login' })
 class extends Component {
@@ -8,13 +11,19 @@ class extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                const obj = {
+                    username: values.username,
+                    password: values.password
+                }
+                axios.post('https://blog.zdldove.top/Home/Apis/sampleReg',qs.stringify(obj)).then(res => {
+                    console.log(res)
+                })
             }
         });
     };
 
-    register = () => {
-        this.props.history.push('/register')
+    login = () => {
+        this.props.history.push('/login')
     }
 
     render() {
@@ -46,9 +55,9 @@ class extends Component {
                         </Form.Item>
                         <Form.Item>
                             <Button type="primary" htmlType="submit" className="login-form-button">
-                                登录
+                                注册
                             </Button>
-                            <Button onClick={this.register} type="danger">注册</Button>
+                            <span onClick={this.login}>已有账号，去登陆</span>
                         </Form.Item>
                     </Form>
                 </div>
