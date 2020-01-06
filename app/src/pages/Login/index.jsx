@@ -50,7 +50,7 @@ class extends Component {
 						<Form.Item>
 							<Button type="primary" htmlType="submit" className="login-form-button">
 								登录
-                            </Button>
+              </Button>
 							<Button onClick={this.register} type="danger">注册</Button>
 						</Form.Item>
 					</Form>

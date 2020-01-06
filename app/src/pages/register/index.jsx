@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './styles.less'
 import { Form, Icon, Input, Button, message } from 'antd';
-import axios from 'axios'
 import qs from 'qs'
 import { post } from '@/utils/request'
 
@@ -17,8 +16,13 @@ class extends Component {
 					passWord: values.password,
 					rePassWord: values.truepassword
 				}
+<<<<<<< HEAD
 				post('api/Home/Apis/sampleReg', qs.stringify(obj)).then(res => {
 					if (res.code == 200) {
+=======
+				post('https://blog.zdldove.top/Home/Apis/sampleReg', qs.stringify(obj)).then(res => {
+					if (res.code === 200) {
+>>>>>>> ffbd864206fef8999719569f8b8fa8f1abb9f4d2
 						message.info('注册成功')
 						this.props.history.push('/login')
 					} else {
