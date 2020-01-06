@@ -9,6 +9,8 @@ const tenant = loadable(() => import('@/pages/tenant'))
 const family = loadable(() => import('@/pages/family'))
 const Construction = loadable(() => import('@/pages/Construction'))
 export default class extends Component {
+
+
 	handleClick = e => {
 
 	};

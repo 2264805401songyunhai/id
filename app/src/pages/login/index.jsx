@@ -3,7 +3,6 @@ import './styles.less'
 import { Form, Icon, Input, Button,message } from 'antd';
 import { log } from '@/api/actions'
 import { connect } from 'react-redux'
-import { user } from '@/reducer'
 
 export default @connect(state => {
 	return {
@@ -31,6 +30,8 @@ class extends Component {
 					if(res.code === 200){
 						message.info('登录成功')
 						this.props.get(obj)
+						console.log(res)
+						localStorage.setItem('quan',res.result)
 						this.props.history.push('./home')
 					}else{
 						message.info('登录失败')

@@ -1,6 +1,6 @@
 const childUser = {
 	name: "",
-	pass: ""
+	quan: ""
 }
 export default function users(state = childUser, action) {
 	switch (action.type) {
