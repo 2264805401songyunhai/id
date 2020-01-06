@@ -107,9 +107,7 @@ export default class extends Component {
 						</Breadcrumb>
 					</div>
 					<p className="time">
-						时间 : {
-							dateStr
-						}
+						时间 : {dateStr}
 					</p>
 				</div>
 				<div className="flexLastone">
