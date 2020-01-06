@@ -3,7 +3,6 @@ import './styles.less'
 import { Form, Icon, Input, Button,message } from 'antd';
 import { log } from '@/api/actions'
 import { connect } from 'react-redux'
-import { user } from '@/reducer'
 
 export default @connect(state => {
 	return {

@@ -13,13 +13,13 @@ export default class componentName extends Component {
 		return (
 			<div className="right_flexbodx">
 				<div className="navBox">
-					<p>
+					<div className="div">
 						当前位置 :
 						<Breadcrumb>
 							<Breadcrumb.Item>系统</Breadcrumb.Item>
 							<Breadcrumb.Item>承租方</Breadcrumb.Item>
 						</Breadcrumb>
-					</p>
+					</div>
 					<p className="time">
 						时间 : {
 							dateStr
