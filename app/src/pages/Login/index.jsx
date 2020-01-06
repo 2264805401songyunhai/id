@@ -1,9 +1,23 @@
 import React, { Component } from 'react'
 import './styles.less'
-import { Form, Icon, Input, Button } from 'antd';
-import { post } from '@/utils/request'
+import { Form, Icon, Input, Button,message } from 'antd';
+import { log } from '@/api/actions'
+import { connect } from 'react-redux'
+import { user } from '@/reducer'
 
-export default @Form.create({ name: 'normal_login' })
+export default @connect(state => {
+	return {
+
+	}
+},{
+	get : option => {
+		return {
+			type:'LOGIN',
+			payload: option
+		}
+	}
+})
+@Form.create({ name: 'normal_login' })
 class extends Component {
 	handleSubmit = e => {
 		e.preventDefault();
@@ -13,7 +27,15 @@ class extends Component {
 					userName: values.username,
 					passWord: values.password
 				}
-				// post('api/Home/Apis/sampleLogin')
+				log(obj).then(res => {
+					if(res.code === 200){
+						message.info('登录成功')
+						this.props.get(obj)
+						this.props.history.push('./home')
+					}else{
+						message.info('登录失败')
+					}
+				})
 			}
 		});
 	};
