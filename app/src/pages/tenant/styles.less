@@ -5,12 +5,92 @@
   .right_body{
     flex: 1;
     background: white;
-    .line_species{
-      width: 100%;
-      height: 50px;
-      background: red;
-      display: flex;
-      align-items: center;
+    display: flex;
+    .body_left{
+      width: 250px;
+      height: 100%;
+      background: white;
+      border-right: 1px solid gray;
+      .a{
+        background: white !important;
+        margin: 0;
+      }
+    }
+    .body_right{
+      flex: 1;
+      background: white;
+      .line_species{
+        width: 100%;
+        height: 50px;
+        background: white;
+        padding-top: 15px;
+        padding-left: 100px;
+        .p_title{
+          margin-right: 20px;
+          float: left;
+        }
+        .p{
+          float: left;
+          .p_title1{
+            border: 1px solid gray;
+            float: left;
+            margin-left: 10px;
+            color: white;
+          }
+        }
+      }
+      .right_tab{
+        width: 100%;
+        height: 300px;
+        background: blue;
+        display: flex;
+        flex-direction: column;
+        .tab1{
+          width: 100%;
+          height: 40px;
+          display: flex;
+          .tabp1{
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 900;
+            background: #044599;
+          }
+          p{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #044599;
+            margin: 0;
+            color: white;
+            font-weight: 900;
+          }
+        }
+        .tab2{
+          flex: 1;
+          background: red;
+          .tab2_left{
+            width: 100px;
+            height: 100%;
+            align-items: center;
+            background: white;
+            color:#044599 ;
+            display: flex;
+            flex-direction: column;
+            p{
+              flex: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 17px;
+              margin: 0;
+            }
+          }
+        }
+      }
     }
   }
 }
