@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './styles.less'
 import { Form, Icon, Input, Button } from 'antd';
+import { post } from '@/utils/request'
 
 export default @Form.create({ name: 'normal_login' })
 class extends Component {
@@ -12,12 +13,21 @@ class extends Component {
 					userName: values.username,
 					passWord: values.password
 				}
+				// post('api/Home/Apis/sampleLogin')
 			}
 		});
 	};
 
 	register = () => {
 		this.props.history.push('/register')
+	}
+
+	validator = (rule, value, callback) => {
+		if (value.length < 6 || value.length > 18) {
+			callback('长度不对6-18')
+		} else {
+			callback()
+		}
 	}
 
 	render() {
@@ -28,7 +38,15 @@ class extends Component {
 					<Form onSubmit={this.handleSubmit} className="login-form">
 						<Form.Item>
 							{getFieldDecorator('username', {
-								rules: [{ required: true, message: '没输入' }],
+								rules: [
+									{
+										validator: this.validator
+									},
+									{ 
+										required: true, 
+										message: '没输入' 
+									}
+								],
 							})(
 								<Input
 									prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -38,7 +56,15 @@ class extends Component {
 						</Form.Item>
 						<Form.Item>
 							{getFieldDecorator('password', {
-								rules: [{ required: true, message: 'Please input your Password!' }],
+								rules: [
+									{
+										validator: this.validator
+									},
+									{ 
+										required: true, 
+										message: 'Please input your Password!' 
+									}
+								],
 							})(
 								<Input
 									prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
