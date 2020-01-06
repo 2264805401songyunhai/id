@@ -3,10 +3,11 @@ import "./styles.less"
 import { Icon, Menu } from "antd"
 import { Switch, Route, Link } from 'react-router-dom'
 import loadable from '@/utils/loader'
-const { SubMenu } = Menu;
-const management = loadable(() => import('@/pages/management'))
-const tenant = loadable(() => import('@/pages/tenant'))
-const family = loadable(() => import('@/pages/family'))
+
+const { SubMenu } = Menu
+const Management = loadable(() => import('@/pages/management'))
+const Tenant = loadable(() => import('@/pages/tenant'))
+const Family = loadable(() => import('@/pages/family'))
 const Construction = loadable(() => import('@/pages/construction'))
 
 export default class extends Component {
@@ -21,16 +22,16 @@ export default class extends Component {
 		switch (Urlhistory) {
 			case '/Home/tenant':
 				url = ['2']
-				break;
+				break
 			case '/Home/Construction':
 				url = ['4']
-				break;
+				break
 			case '/Home/family':
 				url = ['3']
-				break;
+				break
 			default:
 				url = ['1']
-				break;
+				break
 		}
 		return (
 			<div className="home_box">
@@ -111,10 +112,10 @@ export default class extends Component {
 							</Menu>
 						</div>
 						<Switch>
-							<Route path="/Home/tenant" component={tenant} />
-							<Route path="/Home/family" component={family} />
+							<Route path="/Home/tenant" component={Tenant} />
+							<Route path="/Home/family" component={Family} />
 							<Route path="/Home/Construction" component={Construction} />
-							<Route path="/Home/" component={management} />
+							<Route path="/Home/" component={Management} />
 						</Switch>
 					</div>
 				</div>
