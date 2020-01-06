@@ -1,6 +1,6 @@
 const childUser = {
 	name: "",
-	pass: ""
+	quan: ""
 }
 export default function users(state = childUser, action) {
 	switch (action.type) {
@@ -8,6 +8,6 @@ export default function users(state = childUser, action) {
 			console.log(action)
 			return { ...action.payload,...{name:action.payload.userName} }
 		default:
-			return { ...state }
+			return state
 	}
 }

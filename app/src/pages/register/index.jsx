@@ -16,7 +16,6 @@ class extends Component {
 					rePassWord: values.truepassword
 				}
 				reg(obj).then(res => {
-					console.log(res)
 					if (res.code === 200) {
 						message.info('注册成功')
 						this.props.history.push('/login')
