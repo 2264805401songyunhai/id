@@ -8,9 +8,9 @@ import Router from "./router"
 
 
 ReactDOM.render(
-    <Provider store={store}>
-        <PersistGate loading={null} persistor={persistStore(store)}>
-            <Router />
-        </PersistGate>
-    </Provider>
-    , document.getElementById('root'));
+	<Provider store={store}>
+		<PersistGate loading={null} persistor={persistStore(store)}>
+			<Router />
+		</PersistGate>
+	</Provider>
+	, document.getElementById('root'));

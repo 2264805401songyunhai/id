@@ -34,7 +34,7 @@ axios.interceptors.response.use(response => {
   return Promise.reject(error)
 })
 
-export function request (url, payload = {}) {
+export function post (url, payload = {}) {
   return new Promise((resolve, reject) => {
     axios({
       method: 'post',
