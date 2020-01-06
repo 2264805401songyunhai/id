@@ -19,7 +19,7 @@ export default @connect(state => {
 @Form.create({ name: 'normal_login' })
 class extends Component {
 	handleSubmit = e => {
-		e.preventDefault();
+		e.preventDefault()
 		this.props.form.validateFields((err, values) => {
 			if (!err) {
 				const obj = {
@@ -38,8 +38,8 @@ class extends Component {
 					}
 				})
 			}
-		});
-	};
+		})
+	}
 
 	register = () => {
 		this.props.history.push('/register')
@@ -54,7 +54,7 @@ class extends Component {
 	}
 
 	render() {
-		const { getFieldDecorator } = this.props.form;
+		const { getFieldDecorator } = this.props.form
 		return (
 			<div className="login_box">
 				<div className="body">
