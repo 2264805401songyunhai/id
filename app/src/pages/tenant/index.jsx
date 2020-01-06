@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Breadcrumb } from 'antd';
+import './styles.less'
 
 export default class componentName extends Component {
 	render() {
@@ -25,6 +26,12 @@ export default class componentName extends Component {
 							dateStr
 						}
 					</p>
+				</div>
+				<div className="right_body">
+						<div className="line_species">
+							<p>瑞景河畔16号楼 </p>
+							<p className="p1"></p>
+						</div>
 				</div>
 			</div>
 		)

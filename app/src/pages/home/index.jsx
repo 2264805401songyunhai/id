@@ -3,13 +3,24 @@ import "./styles.less"
 import { Icon, Menu } from "antd"
 import { Switch, Route, Link } from 'react-router-dom'
 import loadable from '@/utils/loader'
+import { connect } from 'react-redux' 
+
+
+
 const { SubMenu } = Menu;
 const management = loadable(() => import('@/pages/management'))
 const tenant = loadable(() => import('@/pages/tenant'))
 const family = loadable(() => import('@/pages/family'))
 const Construction = loadable(() => import('@/pages/Construction'))
 
-export default class extends Component {
+export default @connect(state => {
+	return {
+		
+	}
+},{
+
+})
+class extends Component { 
 	render() {
 		const Urlhistory = this.props.location.pathname
 		var url = ['1']
@@ -34,7 +45,7 @@ export default class extends Component {
 						住房租赁管理系统
                     </p>
 					<div>
-						用户名：
+						用户名：<span></span>
                     </div>
 				</div>
 				<div className="home_flex">
