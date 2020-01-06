@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './styles.less'
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 import axios from 'axios'
 import qs from 'qs'
 

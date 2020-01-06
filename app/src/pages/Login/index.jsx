@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './styles.less'
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 
 export default @Form.create({ name: 'normal_login' })
 class extends Component {
