@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import './styles.less'
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Icon, Input, Button, message } from 'antd';
 import axios from 'axios'
 import qs from 'qs'
+import { post } from '@/utils/request'
 
 
 export default @Form.create({ name: 'normal_login' })
@@ -12,11 +13,17 @@ class extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 const obj = {
-                    username: values.username,
-                    password: values.password
+                    userName: values.username,
+                    passWord: values.password,
+                    rePassWord : values.truepassword
                 }
-                axios.post('https://blog.zdldove.top/Home/Apis/sampleReg',qs.stringify(obj)).then(res => {
-                    console.log(res)
+                post('https://blog.zdldove.top/Home/Apis/sampleReg',qs.stringify(obj)).then(res => {
+                    if(res.code == 200){
+                        message.info('注册成功')
+                        this.props.history.push('/login')
+                    }else{
+                        message.info('注册失败')
+                    }
                 })
             }
         });
@@ -26,6 +33,14 @@ class extends Component {
         this.props.history.push('/login')
     }
 
+    validator = (rule, value, callback) => {
+		if (value.length < 6 || value.length > 18 ) {
+			callback('长度不对6-18')
+		} else {
+			callback()
+		}
+	}
+
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
@@ -34,22 +49,57 @@ class extends Component {
                     <Form onSubmit={this.handleSubmit} className="login-form">
                         <Form.Item>
                             {getFieldDecorator('username', {
-                                rules: [{ required: true, message: 'Please input your username!' }],
+                                rules: [
+                                    {
+										validator: this.validator
+									},
+                                    { 
+                                        required: true, 
+                                        message: '请输入' 
+                                    }
+                                ],
                             })(
                                 <Input
                                     prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                    placeholder="请输入用户名"
+                                    placeholder="用户名"
                                 />,
                             )}
                         </Form.Item>
                         <Form.Item>
                             {getFieldDecorator('password', {
-                                rules: [{ required: true, message: 'Please input your Password!' }],
+                                rules: [
+                                    {
+										validator: this.validator
+									},
+                                    { 
+                                        required: true, 
+                                        message: 'Please input your Password!' 
+                                    }
+                                ],
                             })(
                                 <Input
                                     prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                     type="password"
-                                    placeholder="请输入密码"
+                                    placeholder="密码"
+                                />,
+                            )}
+                        </Form.Item>
+                        <Form.Item>
+                            {getFieldDecorator('truepassword', {
+                                rules: [
+                                    {
+										validator: this.validator
+									},
+                                    { 
+                                        required: true, 
+                                        message: 'Please input your Password!' 
+                                    }
+                                ],
+                            })(
+                                <Input
+                                    prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    type="password"
+                                    placeholder="确认密码"
                                 />,
                             )}
                         </Form.Item>
