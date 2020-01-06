@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import './styles.less'
-import { Form, Icon, Input, Button } from 'antd';
-import { post } from '@/utils/request'
+import { Form, Icon, Input, Button } from 'antd'
 
 export default @Form.create({ name: 'normal_login' })
 class extends Component {
 	handleSubmit = e => {
-		e.preventDefault();
+		e.preventDefault()
 		this.props.form.validateFields((err, values) => {
 			if (!err) {
 				const obj = {
@@ -15,8 +14,8 @@ class extends Component {
 				}
 				// post('api/Home/Apis/sampleLogin')
 			}
-		});
-	};
+		})
+	}
 
 	register = () => {
 		this.props.history.push('/register')
@@ -31,7 +30,7 @@ class extends Component {
 	}
 
 	render() {
-		const { getFieldDecorator } = this.props.form;
+		const { getFieldDecorator } = this.props.form
 		return (
 			<div className="login_box">
 				<div className="body">

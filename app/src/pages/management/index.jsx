@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Breadcrumb } from 'antd';
-export default class componentName extends Component {
+
+export default class extends Component {
 	render() {
 		var nowDate = new Date();
 		var year = nowDate.getFullYear();
@@ -13,11 +14,10 @@ export default class componentName extends Component {
 			<div className="right_flexbodx">
 				<div className="navBox">
 					<p>
-						当前位置 :  <Breadcrumb>
+						当前位置 :
+						<Breadcrumb>
 							<Breadcrumb.Item>系统</Breadcrumb.Item>
-							<Breadcrumb.Item>
-								<a href="#">房源管理</a>
-							</Breadcrumb.Item>
+							<Breadcrumb.Item>房源管理</Breadcrumb.Item>
 						</Breadcrumb>
 					</p>
 					<p className="time">

@@ -8,10 +8,8 @@ const management = loadable(() => import('@/pages/management'))
 const tenant = loadable(() => import('@/pages/tenant'))
 const family = loadable(() => import('@/pages/family'))
 const Construction = loadable(() => import('@/pages/Construction'))
-export default class extends Component {
-	handleClick = e => {
 
-	};
+export default class extends Component {
 	render() {
 		const Urlhistory = this.props.location.pathname
 		var url = ['1']
@@ -65,7 +63,6 @@ export default class extends Component {
 								<span>系统管理</span> / System Management
                             </p>
 							<Menu
-								onClick={this.handleClick}
 								style={{ width: 256 }}
 								defaultSelectedKeys={url}
 								defaultOpenKeys={['sub1']}
