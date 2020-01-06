@@ -28,6 +28,7 @@ class extends Component {
 				}
 				log(obj).then(res => {
 					if(res.code === 200){
+						console.log(res)
 						message.info('登录成功')
 						this.props.get(obj)
 						console.log(res)
