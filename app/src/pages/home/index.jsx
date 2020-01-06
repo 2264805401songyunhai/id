@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import "./styles.less"
 import { Icon, Menu } from "antd"
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
-import management from "@/pages/management"
-import tenant from "@/pages/tenant"
-import family from "@/pages/family"
-import Construction from "@/pages/Construction"
+import loadable from '@/utils/loader'
 const { SubMenu } = Menu;
+const management = loadable(() => import('@/pages/management'))
+const tenant = loadable(() => import('@/pages/tenant'))
+const family = loadable(() => import('@/pages/family'))
+const Construction = loadable(() => import('@/pages/Construction'))
 export default class extends Component {
-<<<<<<< HEAD
     handleClick = e => {
 
     };
@@ -103,13 +103,4 @@ export default class extends Component {
             </div>
         )
     }
-=======
-	render() {
-		return (
-			<div className="home_box">
-				Home
-      </div>
-		)
-	}
->>>>>>> a0a94efafc83113ca30795177c0e023c4aa6a9c8
 }
