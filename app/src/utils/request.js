@@ -34,7 +34,7 @@ axios.interceptors.response.use(response => {
   return Promise.reject(error)
 })
 
-export function request (url, payload = {}) {
+export function post (url, payload = {}) {
   return new Promise((resolve, reject) => {
     axios({
       method: 'post',
@@ -44,7 +44,7 @@ export function request (url, payload = {}) {
       .then(response => {
         const data = response.data
         if (data.code === 200) {
-          resolve(data.data)
+          resolve(data)
 
         } else {
           reject(data) 
