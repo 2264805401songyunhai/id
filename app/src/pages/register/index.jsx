@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import './styles.less'
 import { Form, Icon, Input, Button, message } from 'antd';
-import qs from 'qs'
-import { post } from '@/utils/request'
+import { reg } from '@/api/actions'
 
 
 export default @Form.create({ name: 'normal_login' })
@@ -16,13 +15,9 @@ class extends Component {
 					passWord: values.password,
 					rePassWord: values.truepassword
 				}
-<<<<<<< HEAD
-				post('api/Home/Apis/sampleReg', qs.stringify(obj)).then(res => {
-					if (res.code == 200) {
-=======
-				post('https://blog.zdldove.top/Home/Apis/sampleReg', qs.stringify(obj)).then(res => {
+				reg(obj).then(res => {
+					console.log(res)
 					if (res.code === 200) {
->>>>>>> ffbd864206fef8999719569f8b8fa8f1abb9f4d2
 						message.info('注册成功')
 						this.props.history.push('/login')
 					} else {
@@ -110,7 +105,7 @@ class extends Component {
 						<Form.Item>
 							<Button type="primary" htmlType="submit" className="login-form-button">
 								注册
-                            </Button>
+              </Button>
 							<span onClick={this.login}>已有账号，去登陆</span>
 						</Form.Item>
 					</Form>

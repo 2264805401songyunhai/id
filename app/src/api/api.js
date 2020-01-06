@@ -1,3 +1,3 @@
 export default {
-	login:""
+	reg: "api/Home/Apis/sampleReg",//注册
 }
