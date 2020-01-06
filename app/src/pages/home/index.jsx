@@ -8,6 +8,7 @@ import family from "@/pages/family"
 import Construction from "@/pages/Construction"
 const { SubMenu } = Menu;
 export default class extends Component {
+<<<<<<< HEAD
     handleClick = e => {
 
     };
@@ -102,4 +103,13 @@ export default class extends Component {
             </div>
         )
     }
+=======
+	render() {
+		return (
+			<div className="home_box">
+				Home
+      </div>
+		)
+	}
+>>>>>>> a0a94efafc83113ca30795177c0e023c4aa6a9c8
 }

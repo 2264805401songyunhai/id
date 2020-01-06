@@ -5,7 +5,7 @@ let cancelToken = axios.CancelToken
 const cancel = []
 
 const removePending = config => {
-  for(let p in cancel){
+  for (let p in cancel) {
     if (cancel[p].u === config.url) {
       cancel[p].f()
     }
@@ -17,7 +17,7 @@ axios.interceptors.request.use(config => {
   //在一个ajax发送前执行一下取消操作
   removePending(config)
   config.cancelToken = new cancelToken(c => {
-    cancel.push({ 
+    cancel.push({
       f: c,
       u: config.url,
     })
@@ -34,7 +34,7 @@ axios.interceptors.response.use(response => {
   return Promise.reject(error)
 })
 
-export function request (url, payload = {}) {
+export function post(url, payload = {}) {
   return new Promise((resolve, reject) => {
     axios({
       method: 'post',
@@ -44,10 +44,10 @@ export function request (url, payload = {}) {
       .then(response => {
         const data = response.data
         if (data.code === 200) {
-          resolve(data.data)
+          resolve(data)
 
         } else {
-          reject(data) 
+          reject(data)
         }
       })
       .catch(err => {
@@ -56,7 +56,7 @@ export function request (url, payload = {}) {
   })
 }
 
-export function get (url, payload = {}) {
+export function get(url, payload = {}) {
   return new Promise((resolve, reject) => {
     axios({
       method: 'get',
