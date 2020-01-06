@@ -7,9 +7,14 @@ const { SubMenu } = Menu;
 const management = loadable(() => import('@/pages/management'))
 const tenant = loadable(() => import('@/pages/tenant'))
 const family = loadable(() => import('@/pages/family'))
-const Construction = loadable(() => import('@/pages/Construction'))
+const Construction = loadable(() => import('@/pages/construction'))
 
 export default class extends Component {
+	componentDidMount() {
+		if (!JSON.parse(JSON.parse(localStorage.getItem('persist:root')).user).name) {
+			this.props.history.push('/login')
+		}
+	}
 	render() {
 		const Urlhistory = this.props.location.pathname
 		var url = ['1']
@@ -76,16 +81,32 @@ export default class extends Component {
 										</span>
 									}
 								>
-									<Menu.Item key="1"> <span></span>  <Link to="/Home/">房源管理</Link>  </Menu.Item>
-									<Menu.Item key="2"><span></span>
+									<Menu.Item key="1">
+										<span></span>
+										<Link to="/Home/">房源管理</Link>
+									</Menu.Item>
+									<Menu.Item key="2">
+										<span></span>
 										<Link to="/Home/tenant">承租方管理</Link>
 									</Menu.Item>
-									<Menu.Item key="3"><span></span>
-										<Link to="/Home/family">家庭成员管理</Link>
-									</Menu.Item>
-									<Menu.Item key="4"><span></span>
-										<Link to="/Home/Construction">施工单位</Link>
-									</Menu.Item>
+									{
+										localStorage.vip === 'true' ?
+											(
+												<Menu.Item key="3">
+													<span></span>
+													<Link to="/Home/family">家庭成员管理</Link>
+												</Menu.Item>
+											) : ""
+									}
+									{
+										localStorage.vip === 'true' ?
+											(
+												<Menu.Item key="4">
+													<span></span>
+													<Link to="/Home/Construction">施工单位</Link>
+												</Menu.Item>
+											) : ""
+									}
 								</SubMenu>
 							</Menu>
 						</div>

@@ -14,7 +14,7 @@ export default class extends Component {
 			<div className="right_flexbodx">
 				<div className="navBox">
 					<div className="div">
-						当前位置 :  
+						当前位置 :
 						<Breadcrumb>
 							<Breadcrumb.Item>系统</Breadcrumb.Item>
 							<Breadcrumb.Item>家庭成员</Breadcrumb.Item>
