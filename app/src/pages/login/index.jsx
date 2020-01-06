@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './styles.less'
-import { Form, Icon, Input, Button,message } from 'antd';
+import { Form, Icon, Input, Button, message } from 'antd';
 import { log } from '@/api/actions'
 import { connect } from 'react-redux'
 
@@ -8,10 +8,10 @@ export default @connect(state => {
 	return {
 		
 	}
-},{
-	get : option => {
+}, {
+	get: option => {
 		return {
-			type:'LOGIN',
+			type: 'LOGIN',
 			payload: option
 		}
 	}
@@ -27,14 +27,17 @@ class extends Component {
 					passWord: values.password
 				}
 				log(obj).then(res => {
-					if(res.code === 200){
-						console.log(res)
+					if (res.code === 200) {
+						if (obj.userName === 'lbb123') {
+							localStorage.setItem('vip', true)
+						} else {
+							localStorage.setItem('vip', false)
+						}
 						message.info('登录成功')
 						this.props.get(obj)
-						console.log(res)
-						localStorage.setItem('quan',res.result)
+						localStorage.setItem('quan', res.result)
 						this.props.history.push('./home')
-					}else{
+					} else {
 						message.info('登录失败')
 					}
 				})
@@ -66,9 +69,9 @@ class extends Component {
 									{
 										validator: this.validator
 									},
-									{ 
-										required: true, 
-										message: '没输入' 
+									{
+										required: true,
+										message: '没输入'
 									}
 								],
 							})(
@@ -84,9 +87,9 @@ class extends Component {
 									{
 										validator: this.validator
 									},
-									{ 
-										required: true, 
-										message: 'Please input your Password!' 
+									{
+										required: true,
+										message: 'Please input your Password!'
 									}
 								],
 							})(

@@ -30,7 +30,13 @@ export default class componentName extends Component {
 				<div className="right_body">
 						<div className="line_species">
 							<p>瑞景河畔16号楼 </p>
-							<p className="p1"></p>
+							<p className="p1">已租赁</p>
+							<p className="p1">已配租</p>
+							<p className="p1">欠费</p>
+							<p className="p1">腾退待租</p>
+							<p className="p1">建成待租</p>
+							<p className="p1">在建</p>
+							<p className="p1">其它</p>
 						</div>
 				</div>
 			</div>
