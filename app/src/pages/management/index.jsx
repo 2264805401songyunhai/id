@@ -30,64 +30,96 @@ class extends Component {
 					dataIndex: '',
 					render: (v) => {
 						return <p>{v.info.address}</p>
+<<<<<<< HEAD
 					},
 					ellipsis: true
+=======
+					}
+>>>>>>> a7449334f60e385e20ad157797b5989953f24fb9
 				},
 				{
 					title: '房源',
 					dataIndex: '',
 					render: (v) => {
 						return <p>{v.info.homeone}</p>
+<<<<<<< HEAD
 					},
 					ellipsis: true
+=======
+					}
+>>>>>>> a7449334f60e385e20ad157797b5989953f24fb9
 				},
 				{
 					title: '房源面积',
 					dataIndex: '',
 					render: (v) => {
 						return <p>{v.info.homesize}</p>
+<<<<<<< HEAD
 					},
 					ellipsis: true
+=======
+					}
+>>>>>>> a7449334f60e385e20ad157797b5989953f24fb9
 				},
 				{
 					title: '计粗面积',
 					dataIndex: '',
 					render: (v) => {
 						return <p>{v.info.updatetime}</p>
+<<<<<<< HEAD
 					},
 					ellipsis: true
+=======
+					}
+>>>>>>> a7449334f60e385e20ad157797b5989953f24fb9
 				},
 				{
 					title: '户型',
 					dataIndex: '',
 					render: (v) => {
 						return <p>{v.info.Door}</p>
+<<<<<<< HEAD
 					},
 					ellipsis: true
+=======
+					}
+>>>>>>> a7449334f60e385e20ad157797b5989953f24fb9
 				},
 				{
 					title: '建筑构筑',
 					dataIndex: '',
 					render: (v) => {
 						return <p>{v.info.building}</p>
+<<<<<<< HEAD
 					},
 					ellipsis: true
+=======
+					}
+>>>>>>> a7449334f60e385e20ad157797b5989953f24fb9
 				},
 				{
 					title: '租赁性质',
 					dataIndex: '',
 					render: (v) => {
 						return <p>{v.info.leases}</p>
+<<<<<<< HEAD
 					},
 					ellipsis: true
+=======
+					}
+>>>>>>> a7449334f60e385e20ad157797b5989953f24fb9
 				},
 				{
 					title: '状态',
 					dataIndex: '',
 					render: (v) => {
 						return <p>{v.info.status}</p>
+<<<<<<< HEAD
 					},
 					ellipsis: true
+=======
+					}
+>>>>>>> a7449334f60e385e20ad157797b5989953f24fb9
 				},
 				{
 					title: '操作',
@@ -111,6 +143,11 @@ class extends Component {
 			limit: 200,
 			pages: 1
 		}
+<<<<<<< HEAD
+=======
+
+		//先获取
+>>>>>>> a7449334f60e385e20ad157797b5989953f24fb9
 		listDate(a).then(res => {
 			let data = res.result.list
 			data.filter(v => {
@@ -120,6 +157,7 @@ class extends Component {
 				data: data
 			})
 		})
+<<<<<<< HEAD
 	}
 	setOne = (v) => {
 		this.props.setdata(v)
@@ -132,6 +170,11 @@ class extends Component {
 		onChange: (selectedRowKeys, selectedRows) => {
 
 		},
+=======
+
+	}
+	rowSelection = {
+>>>>>>> a7449334f60e385e20ad157797b5989953f24fb9
 		getCheckboxProps: record => ({
 			disabled: record.name === 'Disabled User',
 			name: record.name,

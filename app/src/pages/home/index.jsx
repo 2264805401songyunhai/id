@@ -7,7 +7,7 @@ const { SubMenu } = Menu
 const Management = loadable(() => import('@/pages/management'))
 const Tenant = loadable(() => import('@/pages/tenant'))
 const Family = loadable(() => import('@/pages/family'))
-const Construction = loadable(() => import('@/pages/Construction'))
+const Construction = loadable(() => import('@/pages/construction'))
 
 export default class extends Component {
 	componentDidMount() {
