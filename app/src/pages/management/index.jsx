@@ -91,8 +91,8 @@ export default class extends Component {
 		//先获取
 		listDate(a).then(res => {
 			let data = res.result.list
-			data.filter(v => {
-				v.info = JSON.parse(v.info)
+			data.filter(v=>{
+				v.info=JSON.parse(v.info)
 			})
 			this.setState({
 				data: data
@@ -101,30 +101,26 @@ export default class extends Component {
 
 	}
 	rowSelection = {
-		onChange: (selectedRowKeys, selectedRows) => {
-			// console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-		},
 		getCheckboxProps: record => ({
 			disabled: record.name === 'Disabled User', // Column configuration not to be checked
 			name: record.name,
 		}),
 	};
 	showModal = () => {
-		if (this.state.dis === true) {
-			this.setState({
-				dis: false,
-				style: "添加"
-			})
-		} else {
 			this.setState({
 				dis: true,
 				style: "添加"
 			})
-		}
 	}
 	set = (v) => {
+		
+		let a=v
+		console.log(this.state.dis)
+
+		console.log(v)
 		this.setState({
-			dis: v
+			dis:v
+		},()=>{
 		})
 	}
 	render() {
@@ -150,10 +146,10 @@ export default class extends Component {
 						<input type="text" name="" id="" />
 						<button>
 							查询
-								</button>
+							</button>
 						<button onClick={this.showModal}>
 							新增
-							<Model dis={this.state.dis} styleONE={this.state.style} />
+							<Model dis={this.state.dis} styleONE={this.state.style}  Set={this.set}/>
 						</button>
 						<button>
 							删除
