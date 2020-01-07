@@ -15,58 +15,58 @@ export default class extends Component {
 				{
 					title: '位置',
 					dataIndex: '',
-					render:(v)=>{
-							return <p>{v.info.address}</p>
+					render: (v) => {
+						return <p>{v.info.address}</p>
 					}
 				},
 				{
 					title: '房源',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.homeone}</p>
-				}
+					}
 				},
 				{
 					title: '房源面积',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.homesize}</p>
-				}
+					}
 				},
 				{
 					title: '计粗面积',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.updatetime}</p>
-				}
+					}
 				},
 				{
 					title: '户型',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.Door}</p>
-				}
+					}
 				},
 				{
 					title: '建筑构筑',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.building}</p>
-				}
+					}
 				},
 				{
 					title: '租赁性质',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.leases}</p>
-				}
+					}
 				},
 				{
 					title: '状态',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.status}</p>
-				}
+					}
 				},
 				{
 					title: '操作',
@@ -84,40 +84,21 @@ export default class extends Component {
 		}
 		let a = {
 			token: localStorage.getItem("quan"),
-			limit:200,
-			pages:1
+			limit: 200,
+			pages: 1
 		}
-		// let setone = {
-		// 	id:v.id,
-		// 	address: "ssss",
-		// 	homeone: "aa",
-		// 	homesize: "a",
-		// 	updatetime: "a",
-		// 	Door: "a",
-		// 	building: "a",
-		// 	leases: "a",
-		// 	status: "a"
-		// }
-		// let setdata = {
-		// 	token: localStorage.getItem("quan"),
-		// 	info:setone,
-		// }
-		// addset(setdata).then(res => {
-			
-		// })
-		
+
 		//先获取
 		listDate(a).then(res => {
 			let data = res.result.list
-			data.filter(v=>{
-				v.info=JSON.parse(v.info)
-			})		
-			console.log(data)
+			data.filter(v => {
+				v.info = JSON.parse(v.info)
+			})
 			this.setState({
-				data:data
+				data: data
 			})
 		})
-		
+
 	}
 	rowSelection = {
 		onChange: (selectedRowKeys, selectedRows) => {
@@ -172,7 +153,7 @@ export default class extends Component {
 								</button>
 						<button onClick={this.showModal}>
 							新增
-							<Model dis={this.state.dis} styleONE={this.state.style}  />
+							<Model dis={this.state.dis} styleONE={this.state.style} />
 						</button>
 						<button>
 							删除
