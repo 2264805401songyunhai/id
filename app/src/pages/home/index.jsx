@@ -3,12 +3,11 @@ import "./styles.less"
 import { Icon, Menu } from "antd"
 import { Switch, Route, Link } from 'react-router-dom'
 import loadable from '@/utils/loader'
-
 const { SubMenu } = Menu
 const Management = loadable(() => import('@/pages/management'))
 const Tenant = loadable(() => import('@/pages/tenant'))
 const Family = loadable(() => import('@/pages/family'))
-const Construction = loadable(() => import('@/pages/construction'))
+const Construction = loadable(() => import('@/pages/Construction'))
 
 export default class extends Component {
 	componentDidMount() {
