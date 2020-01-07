@@ -13,6 +13,7 @@ const persistConfig = {
 }
 const data = combineReducers({
 	user: rdc.User,
+	Setdata: rdc.Dateset,
 })
 const windowRedux = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 

@@ -6,8 +6,20 @@ import { addset } from "@/api/actions"
 import dateStr from "@/component/time"
 import Model from "@/component/model"
 import { connect } from 'react-redux'
+export default 
+@connect(state => {
+	return {
 
-export default class extends Component {
+	}
+}, {
+	setdata: (v) => {
+		return {
+			type: 'SETDATE',
+			payload: v
+		}
+	}
+})
+class extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -16,135 +28,138 @@ export default class extends Component {
 				{
 					title: '位置',
 					dataIndex: '',
-					render:(v)=>{
-							return <p>{v.info.address}</p>
-					}
+					render: (v) => {
+						return <p>{v.info.address}</p>
+					},
+					ellipsis: true
 				},
 				{
 					title: '房源',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.homeone}</p>
-				}
+					},
+					ellipsis: true
 				},
 				{
 					title: '房源面积',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.homesize}</p>
-				}
+					},
+					ellipsis: true
 				},
 				{
 					title: '计粗面积',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.updatetime}</p>
-				}
+					},
+					ellipsis: true
 				},
 				{
 					title: '户型',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.Door}</p>
-				}
+					},
+					ellipsis: true
 				},
 				{
 					title: '建筑构筑',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.building}</p>
-				}
+					},
+					ellipsis: true
 				},
 				{
 					title: '租赁性质',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.leases}</p>
-				}
+					},
+					ellipsis: true
 				},
 				{
 					title: '状态',
 					dataIndex: '',
-					render:(v)=>{
+					render: (v) => {
 						return <p>{v.info.status}</p>
-				}
+					},
+					ellipsis: true
 				},
 				{
 					title: '操作',
 					dataIndex: '',
-					render: () => {
+					render: (v) => {
 						return <p className="setList_data">
 							<span>删除</span>
-							<span>修改</span>
+							<span onClick={() => this.setOne(v)}>修改</span>
 						</p>
-					}
+					},
+					ellipsis: true
 				},
 			],
 			dis: false,
 			style: "添加"
 		}
+	}
+	componentDidMount() {
 		let a = {
 			token: localStorage.getItem("quan"),
-			limit:200,
-			pages:1
+			limit: 200,
+			pages: 1
 		}
-		// let setone = {
-		// 	id:v.id,
-		// 	address: "ssss",
-		// 	homeone: "aa",
-		// 	homesize: "a",
-		// 	updatetime: "a",
-		// 	Door: "a",
-		// 	building: "a",
-		// 	leases: "a",
-		// 	status: "a"
-		// }
-		// let setdata = {
-		// 	token: localStorage.getItem("quan"),
-		// 	info:setone,
-		// }
-		// addset(setdata).then(res => {
-			
-		// })
-		
+
 		//先获取
 		listDate(a).then(res => {
 			let data = res.result.list
-			data.filter(v=>{
-				v.info=JSON.parse(v.info)
+			data.filter(v => {
+				v.info = JSON.parse(v.info)
 			})
-			console.log(data)
 			this.setState({
-				data:data
+				data: data
 			})
 		})
-		
+	}
+	setOne = (v) => {
+		this.props.setdata(v)
+		this.setState({
+			dis: true,
+			style: "修改"
+		})
 	}
 	rowSelection = {
 		onChange: (selectedRowKeys, selectedRows) => {
-			// console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+
 		},
 		getCheckboxProps: record => ({
-			disabled: record.name === 'Disabled User', // Column configuration not to be checked
+			disabled: record.name === 'Disabled User',
 			name: record.name,
 		}),
 	};
 	showModal = () => {
-		if (this.state.dis === true) {
-			this.setState({
-				dis: false,
-				style: "添加"
-			})
-		} else {
-			this.setState({
-				dis: true,
-				style: "添加"
-			})
-		}
-	}
-	set = (v) => {
 		this.setState({
-			dis: v
+			dis: true,
+			style: "添加"
+		})
+	}
+	set = () => {
+		let a = {
+			token: localStorage.getItem("quan"),
+			limit: 200,
+			pages: 1
+		}
+		listDate(a).then(res => {
+			let data = res.result.list
+			data.filter(v => {
+				v.info = JSON.parse(v.info)
+			})
+			this.setState({
+				data: data,
+				dis: false
+			})
 		})
 	}
 	render() {
@@ -170,11 +185,11 @@ export default class extends Component {
 						<input type="text" name="" id="" />
 						<button>
 							查询
-								</button>
+							</button>
 						<button onClick={this.showModal}>
 							新增
 						</button>
-						<Model dis={this.state.dis} styleONE={this.state.style}  />
+						<Model dis={this.state.dis} title={this.state.style} handleCancel={this.set} />
 						<button>
 							删除
 								</button>
