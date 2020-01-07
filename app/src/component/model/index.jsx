@@ -92,7 +92,7 @@ class extends Component {
                 rules: [{ required: true, message: 'Please input your username!' }],
               })(
                 <Select
-                  defaultValue={provinceData[0]}
+                  initialValue={provinceData[0]}
                   style={{ width: 120 }}
                   onChange={this.handleProvinceChange}
                 >
@@ -108,7 +108,7 @@ class extends Component {
               })(
                 <Select
                   style={{ width: 120 }}
-                  value={this.state.secondCity}
+                  setFieldsValue={this.state.secondCity}
                   onChange={this.onSecondCityChange}
                 >
                   {cities.map((index, key) => (
