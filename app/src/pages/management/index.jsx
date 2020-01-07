@@ -5,6 +5,7 @@ import { listDate } from "@/api/actions"
 import { addset } from "@/api/actions"
 import dateStr from "@/component/time"
 import Model from "@/component/model"
+import { connect } from 'react-redux'
 
 export default class extends Component {
 	constructor(props) {
@@ -111,7 +112,7 @@ export default class extends Component {
 			let data = res.result.list
 			data.filter(v=>{
 				v.info=JSON.parse(v.info)
-			})		
+			})
 			console.log(data)
 			this.setState({
 				data:data
@@ -172,8 +173,8 @@ export default class extends Component {
 								</button>
 						<button onClick={this.showModal}>
 							新增
-							<Model dis={this.state.dis} styleONE={this.state.style}  />
 						</button>
+						<Model dis={this.state.dis} styleONE={this.state.style}  />
 						<button>
 							删除
 								</button>

@@ -3,6 +3,7 @@ import { Breadcrumb, Menu  } from 'antd';
 import './styles.less';
 import Select from '@/component/select'
 import dateStr from "@/component/time"
+import Ten from "@/component/table"
 
 const { SubMenu } = Menu;
 const datap = ["以租赁","以配租","欠费","腾退","待租","在建","其它"]
@@ -60,7 +61,7 @@ export default class componentName extends Component {
 												<p>6层</p>
 											</div>
 											<div className="tab2_right">
-												
+												<Ten />
 											</div>
 									</div>
 								</div>
