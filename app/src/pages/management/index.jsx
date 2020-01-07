@@ -110,6 +110,7 @@ class extends Component {
 			limit: 200,
 			pages: 1
 		}
+
 		listDate(a).then(res => {
 			let data = res.result.list
 			data.filter(v => {
@@ -185,7 +186,6 @@ class extends Component {
 							</button>
 						<button onClick={this.showModal}>
 							新增
-
 						</button>
 						<Model dis={this.state.dis} title={this.state.style} handleCancel={this.set} />
 						<button>
