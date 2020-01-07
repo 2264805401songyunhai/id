@@ -36,12 +36,8 @@ export default class extends Component {
 		return (
 			<div className="home_box">
 				<div className="home_header">
-					<p>
-						住房租赁管理系统
-                    </p>
-					<div>
-						用户名：<span></span>
-                    </div>
+					<p>住房租赁管理系统</p>
+					<div>用户名：{JSON.parse(JSON.parse(localStorage.getItem('persist:root')).user).name}</div>
 				</div>
 				<div className="home_flex">
 					<div className="flex_left">
@@ -56,9 +52,7 @@ export default class extends Component {
 						<div>
 							<Icon type="lock" />
 						</div>
-						<div className="flex">
-
-						</div>
+						<div className="flex"></div>
 						<div className="lastBack">
 							<Icon type="rollback" />
 						</div>
@@ -67,7 +61,7 @@ export default class extends Component {
 						<div className="header_flex_left">
 							<p className="headerFont">
 								<span>系统管理</span> / System Management
-                            </p>
+              </p>
 							<Menu
 								style={{ width: 256 }}
 								defaultSelectedKeys={url}

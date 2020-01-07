@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Breadcrumb, Menu  } from 'antd';
 import './styles.less';
 import Select from '@/component/select'
+import dateStr from "@/component/time"
 
 const { SubMenu } = Menu;
 const datap = ["以租赁","以配租","欠费","腾退","待租","在建","其它"]
@@ -11,13 +12,6 @@ export default class componentName extends Component {
     console.log('click ', e);
   };
 	render() {
-		let nowDate = new Date();
-		let year = nowDate.getFullYear();
-		let month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1)
-			: nowDate.getMonth() + 1;
-		let day = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate
-			.getDate();
-		let dateStr = year + "-" + month + "-" + day;
 		return (
 			<div className="right_flexbodx">
 				<div className="navBox">
@@ -29,9 +23,7 @@ export default class componentName extends Component {
 						</Breadcrumb>
 					</div>
 					<p className="time">
-						时间 : {
-							dateStr
-						}
+						时间 : {dateStr}
 					</p>
 				</div>
 				<div className="right_body">
